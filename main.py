@@ -9,15 +9,17 @@ import keyboard
 
 pyautogui.PAUSE = 0
 
-sleep(1)
-start_button = (1270, 520)
+STARTBUTTON = (1270, 520)
+SLOW_MODE_ON_EVERY = 10
+WHITE = (255, 255, 255)
+monitor = {'top': 232, 'left': 1082, 'width': 380, 'height': 380}
 
-pyautogui.click(start_button)
+
+sleep(1)
+pyautogui.click(STARTBUTTON)
 sleep(.1)
 
-WHITE = (255, 255, 255)
 
-monitor = {'top': 232, 'left': 1082, 'width': 380, 'height': 380}
 box_coords = []
 
 box_size = monitor['width'] // 3
@@ -81,7 +83,7 @@ with mss.mss() as sct:
         for index, state in enumerate(states):
             print(
                 f"Executing {index+1}/{level}...                             ", end="\r")
-            click_box(state, level % 10 == 0)
+            click_box(state, level % SLOW_MODE_ON_EVERY == 0)
             # sleep(.1)
 
         level += 1
