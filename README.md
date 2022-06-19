@@ -6,7 +6,7 @@ Bot for the game "Sequence Memory" on [Human Benchmark](https://humanbenchmark.c
 
 #### Install the packages
 ```
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 #### Run main.py
 ```
